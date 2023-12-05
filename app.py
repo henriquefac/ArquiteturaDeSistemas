@@ -52,8 +52,10 @@ def criar_usuarios():
     return res
 
 
-app.run(port = 5000, host = 'localhost', debug=True)
 
+if __name__ == "__app__":
+    app.run(debug=True)
 
+#app.run(port = 5000, host = 'localhost', debug=True)
 #heroku
 #railwat
