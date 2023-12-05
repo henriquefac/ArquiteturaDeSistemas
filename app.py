@@ -36,7 +36,7 @@ def obter_usuario_por_id(id):
 def editar_livro_por_id(id):
     usuario_alterado = request.get_json()
     for i in usuarios:
-        if i.id == usuario_alterado.get('id'):
+        if i.id == id:
             i.load_from_json(usuario_alterado)
             return jsonify(i.getJson())
 
