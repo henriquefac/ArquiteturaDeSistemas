@@ -1,23 +1,23 @@
 import express, { response } from 'express';
-import { url } from 'inspector';
 import { Estacionamento } from './estacionamento.js';
 import * as fs from 'fs';
 
 const app = express();
 app.use(express.json()) ;//indica para o express ler body c/ json
 
-/* 
-let users;
-const url=''
-fetch('url')
-.then(response => response.json())
-.then(data=> dado = data)
-*/
 
+let users
+let url='localhost:5000/usuarios'
+fetch(url)
+.then(response => response.json())
+.then(data=> users = data)
+
+/*
 const users = [
     { "nome": "Henrique","email": "email","id": "123456789","plano": "gold"},
     { "nome": "Henrique","email": "email", "id": "12","plano": "prata"}
 ]
+*/ 
 const teste= fs.readFileSync('./estacionamento.json', 'utf-8')
 const vagas= JSON.parse(teste);
 
@@ -26,6 +26,7 @@ let dadoE = vagas;
 
 
 app.get('/est', (req, res) => {
+    console.log(users)
     try {       
         res.status(200).send(dadoE);        
     } catch (err) {
@@ -36,7 +37,7 @@ app.get('/est', (req, res) => {
 
 
 app.get('/est/:id', function(req,res){
-    res.json(buscarVagaporID(req.params.id))
+    res.json(dadoE[buscarVagaporID(req.params.id)])
 })
 
 app.post('/est/locar/:id', (req, res) => {
