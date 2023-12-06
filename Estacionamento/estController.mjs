@@ -6,18 +6,18 @@ import * as fs from 'fs';
 const app = express();
 app.use(express.json()) ;//indica para o express ler body c/ json
 
-/* 
+ 
 let users;
-const url=''
-fetch('url')
+fetch('http://localhost:5000/usuarios')
 .then(response => response.json())
-.then(data=> dado = data)
-*/
+.then(data=> users = data)
 
+/*
 const users = [
     { "nome": "Henrique","email": "email","id": "123456789","plano": "gold"},
     { "nome": "Henrique","email": "email", "id": "12","plano": "prata"}
 ]
+*/
 const teste= fs.readFileSync('./estacionamento.json', 'utf-8')
 const vagas= JSON.parse(teste);
 
@@ -36,7 +36,7 @@ app.get('/est', (req, res) => {
 
 
 app.get('/est/:id', function(req,res){
-    res.json(buscarVagaporID(req.params.id))
+    res.json(dadoE[buscarVagaporID(req.params.id)])
 })
 
 app.post('/est/locar/:id', (req, res) => {
