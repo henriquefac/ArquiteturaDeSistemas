@@ -5,10 +5,7 @@ class Estacionamento {
     status;
     idVaga;
     idHospede;
-    nome;
-
-
-        
+    nome;      
     
     setStatus(status){
         this.status= status;
@@ -33,12 +30,10 @@ class Estacionamento {
     }
     getIdHospede(){
         return this.idHospede;
-
     }
     getVagas(){
         return this.vagas;
     }
-
     liberarVaga(hospede){
         
         let resposta;
@@ -50,19 +45,13 @@ class Estacionamento {
 
             const vaga = this.renderVaga();            
             
-            this.vagas.push(vaga)
-            
-
-            
-
-
-            resposta = `vaga ${this.idHospede} locada`
+            this.vagas.push(vaga);
+            resposta = `vaga ${this.idHospede} locada`;
         }else{
-           this.setStatus(false)
-           resposta = `Estacionamento indisponivel. Verifique seu plano.`
-          
+           this.setStatus(false);
+           resposta = `Estacionamento indisponivel. Verifique seu plano.`;          
         }
-        return resposta
+        return resposta;
     }
     
     renderVaga(){
@@ -70,13 +59,9 @@ class Estacionamento {
             idVaga: this.getIdVaga(),
             idHospede:this.getIdHospede(),
             nome: this.getNome()
-        }
-        
+        }        
         return obj;
     } 
-
-
-
 }
 
 export {Estacionamento};

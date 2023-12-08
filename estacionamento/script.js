@@ -1,8 +1,7 @@
-import {Estacionamento} from "./estacionamento.js";
 import * as fs from 'fs';
 var users;
 
-const teste= fs.readFileSync('./estacionamento.json', 'utf-8')
+const teste= fs.readFileSync('./estacionamento.json', 'utf-8');
 const vagasE= JSON.parse(teste);
 
 fetch('http://localhost:5000/usuarios')
@@ -13,10 +12,7 @@ fetch('http://localhost:5000/usuarios')
     return response.json();
   })
   .then(data => {
-    users = data;
-
-
-  
+    users = data;  
   })
   .catch(error => console.error('Erro ao fazer a requisição:', error));
 
@@ -29,12 +25,10 @@ function buscarVagaporID(id){
 function buscaIndexUser(id){
   const idInt = parseInt(id);
 
-  const findIndex = users.findIndex(user => user.id == idInt)
+  //const findIndex = users.findIndex(user => user.id == idInt)
   
   return users.findIndex( user => user.id == idInt)
 }
-
-
 
 
 export {users,vagasE,buscaIndexUser,buscarVagaporID};
