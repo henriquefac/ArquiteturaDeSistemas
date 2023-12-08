@@ -1,11 +1,13 @@
 [
     {   "status": true,
         "idVaga": 26,
-        "idHospede":1289
+        "idHospede":1289,
+        "nome": "joana"
     },
     {   "status": true,
         "idVaga": 2133,
-        "idHospede":509
+        "idHospede":509,
+        "nome": "julio"
     }
 
 ]
