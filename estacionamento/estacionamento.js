@@ -1,18 +1,26 @@
+import {vagasE} from './script.js';
+
 class Estacionamento {
-    vagas = []
+    vagas = vagasE
     status;
     idVaga;
     idHospede;
-
-
+    nome;      
+    
     setStatus(status){
-        this.status= status
+        this.status= status;
     }
     setVaga(id){
-        this.idVaga = id
+        this.idVaga = id;
     }
     setIdHospede(id){
-        this.idHospede= id
+        this.idHospede= id;
+    }
+    setNome(nome){
+        this.nome= nome;
+    }
+    getNome(){
+        return this.nome;
     }
     getStatus(){
         return this.status;
@@ -22,50 +30,38 @@ class Estacionamento {
     }
     getIdHospede(){
         return this.idHospede;
-
     }
     getVagas(){
         return this.vagas;
     }
-
     liberarVaga(hospede){
+        
         let resposta;
         if(hospede['plano'] == 'gold'){
             this.setStatus(true)
-            this.idVaga= Math.floor(Math.random() * 30) + 1;
+            this.setVaga(Math.floor(Math.random() * 50) + 1);
             this.setIdHospede(hospede.id);
+            this.setNome(hospede.nome)
 
-            const vaga = this.renderVaga(this.getIdVaga(),this.getIdHospede);
-            this.vagas.push(vaga)
-
-            resposta = `vaga ${this.idHospede} locada`
+            const vaga = this.renderVaga();            
+            
+            this.vagas.push(vaga);
+            resposta = `vaga ${this.idHospede} locada`;
         }else{
-           this.setStatus(false)
-           resposta = `Estacionamento indisponivel. Verifique seu plano`
-          
+           this.setStatus(false);
+           resposta = `Estacionamento indisponivel. Verifique seu plano.`;          
         }
-        console.log(resposta)
-        return resposta
+        return resposta;
     }
     
-    renderVaga(idV,idUser){
+    renderVaga(){
         const obj = {
-            status: "true",
-            idVaga: idV,
-            idHospede:idUser
-        }
-        
+            idHospede:this.getIdHospede(),
+            nome: this.getNome(),
+            idVaga: this.getIdVaga()            
+        }        
         return obj;
-    }
-    exibirInformacoes() {
-        console.log(`ID do hospede: ${this.idHospede}`);
-        console.log(`ID da vaga: ${this.idVaga}`);
-        console.log(`Status da vaga: ${this.status}`);
-    }
-    
-
-
-
+    } 
 }
 
 export {Estacionamento};
