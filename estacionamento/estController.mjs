@@ -6,10 +6,8 @@ const app = express();
 app.use(express.json()) ;//indica para o express ler body c/ json
 
 app.post('/est/locar/:id', (req, res) => {
-
     const id = req.params.id;
     const index = users[buscaIndexUser(id)]
-
 
     try{
         if (index != -1) {
@@ -23,7 +21,6 @@ app.post('/est/locar/:id', (req, res) => {
 })
 
 app.get('/est', (req, res) => {
-
     try {       
         res.status(200).send(vagasE);        
     } catch (err) {
