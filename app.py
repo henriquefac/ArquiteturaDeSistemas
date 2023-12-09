@@ -56,9 +56,11 @@ def criar_usuarios():
 
 
 
-if __name__ == "__app__":
-    app.run(debug=True)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34a6a406767bc68b45d14c56c4de6bdf0987ffbd
 app.run(port = 5000, host = 'localhost', debug=True)
 #heroku
 #railwat

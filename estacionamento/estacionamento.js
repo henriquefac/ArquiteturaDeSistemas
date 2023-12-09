@@ -58,7 +58,8 @@ class Estacionamento {
         const obj = {
             idHospede:this.getIdHospede(),
             nome: this.getNome(),
-            idVaga: this.getIdVaga()            
+            idVaga: this.getIdVaga()          
+           
         }        
         return obj;
     } 

@@ -1,3 +1,5 @@
+import {Estacionamento} from "./estacionamento.js";
+
 import * as fs from 'fs';
 var users;
 
