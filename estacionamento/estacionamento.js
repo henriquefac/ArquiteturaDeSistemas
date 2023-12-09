@@ -56,9 +56,10 @@ class Estacionamento {
     
     renderVaga(){
         const obj = {
-            idVaga: this.getIdVaga(),
             idHospede:this.getIdHospede(),
-            nome: this.getNome()
+            nome: this.getNome(),
+            idVaga: this.getIdVaga()          
+           
         }        
         return obj;
     } 
