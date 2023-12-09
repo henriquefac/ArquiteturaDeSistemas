@@ -16,17 +16,12 @@ fetch('http://localhost:5000/usuarios')
   })
   .catch(error => console.error('Erro ao fazer a requisição:', error));
 
-
 function buscarVagaporID(id){
-
   return vagasE.findIndex(vaga=> vaga.idVaga == id)
 }
 
 function buscaIndexUser(id){
-  const idInt = parseInt(id);
-
-  //const findIndex = users.findIndex(user => user.id == idInt)
-  
+  const idInt = parseInt(id);  
   return users.findIndex( user => user.id == idInt)
 }
 
