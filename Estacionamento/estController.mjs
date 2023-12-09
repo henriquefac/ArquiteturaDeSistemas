@@ -1,18 +1,22 @@
 import express, { response } from 'express';
-import { url } from 'inspector';
 import { Estacionamento } from './estacionamento.js';
 import * as fs from 'fs';
+import axios from 'axios';
+
 
 const app = express();
 app.use(express.json()) ;//indica para o express ler body c/ json
 
- 
 let users;
-fetch('http://localhost:5000/usuarios')
-.then(response => response.json())
-.then(data=> users = data)
 
-/*
+axios
+  .get("http://localhost:5000/usuarios")
+  .then((response) => {
+    users = response.json();
+  })
+  .catch((err) => console.log(err));
+
+/* 
 const users = [
     { "nome": "Henrique","email": "email","id": "123456789","plano": "gold"},
     { "nome": "Henrique","email": "email", "id": "12","plano": "prata"}
@@ -78,4 +82,4 @@ function buscaIndexUser(id){
 }
 
 
-app.listen(120);
+app.listen(1350);
